@@ -37,3 +37,6 @@ docker run -d --name aria2-nginx  --restart=always  \
   * 81 用于浏览下载的文件(nginx auto-index)
 3. 使用 "SECRET"  设置rpc密钥, 其实将 `rpc-secret=xxx` 加入到 aira2.conf 文件中.
 4. 使用"HTPASSWD" 设置HTTP认证方案密码(用户名是admin),如果不设置密码为admin:echo "admin:$(openssl passwd -crypt $HTPASSWD)" > /.htpasswd
+```
+echo "admin:$(openssl passwd -crypt $HTPASSWD)" > /.htpasswd
+```
