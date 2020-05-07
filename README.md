@@ -22,6 +22,7 @@ docker run -d --name aria2-nginx  --restart=always  \
     -p 51413:51413  \
     -e HTPASSWD=YOUR_PASSWORD \
     -v /you/path/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf \
+    -v /you/path/conf/nginx/autoindex.html:/aria2/downloads/autoindex.html
     -v /data:/aria2/downloads \
     -v /you/path/aria2/:/root/.aria2/ \
     aria2-nginx
@@ -43,6 +44,7 @@ services:
       - HTPASSWD=YOUR_PASSWORD
     volumes:
       - /you/path/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf
+      - /you/path/conf/nginx/autoindex.html:/aria2/downloads/autoindex.html
       - /mnt/usbdisk/data:/aria2/downloads
       - /you/path/aria2-nginx/aria2/:/root/.aria2/
     networks:
