@@ -1,0 +1,23 @@
+version: '3'
+
+networks:
+  aria2_network:
+    external: false
+
+services:
+  aria2-nginx:
+    image: aria2-nginx
+    environment:
+      - HTPASSWD=YOUR_PASSWORD
+    volumes:
+      - /webser/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf
+      - /mnt/usbdisk/data:/aria2/downloads
+      - /webser/aria2-nginx/aria2/:/root/.aria2/
+    networks:
+      - aria2_network
+    ports:
+      - "6800:6800"
+      - "6880:80"
+      - "6888:81"
+      - "51413:51413"
+
