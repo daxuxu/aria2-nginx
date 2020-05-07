@@ -22,7 +22,7 @@ docker run -d --name aria2-nginx  --restart=always  \
 结束之后, 在浏览器打开 http://yourip:6880/ 访问 Aria-Ng 主页, 打开 http://yourip:6888/ 浏览下载文件夹.
 
 ## 介绍
-* 支持平台: `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`.
+* 支持平台: `amd64`, `arm/v7`.(我只有这2类arch的设备)
 * 基于最新的easypi/alpine构建，镜像不到**20MB**.
 * 自定义aria2配置.
 * Aria-Ng作为web ui,
