@@ -4,6 +4,8 @@ Aria2 with Aira-Ng web UI (by Nginx)
 * 检出项目
 ```
 git clone https://github.com/daxuxu/aria2-nginx.git
+#或者
+docker push daxuxu/aria2-nginx:tagname
 ```
 * build镜像,dockerfile中使用aliyun mirrors,减少apk源的加载时间
 ```
