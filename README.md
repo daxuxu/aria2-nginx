@@ -13,10 +13,10 @@ docker run -d --name aria2-nginx  --restart=always  \
     -p 6880:80  \
     -p 6888:81  \
     -p 51413:51413  \
-    -e HTPASSWD=hjysbr \
-    -v /webdev/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf \
+    -e HTPASSWD=YOUR_PASSWORD \
+    -v /you/path/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf \
     -v /data:/aria2/downloads \
-    -v /webdev/aria2-nginx/aria2/:/root/.aria2/ \
+    -v /you/path/aria2/:/root/.aria2/ \
     aria2-nginx
 ```
 结束之后, 在浏览器打开 http://yourip:6880/ 访问 Aria-Ng 主页, 打开 http://yourip:6888/ 浏览下载文件夹.
@@ -30,7 +30,7 @@ docker run -d --name aria2-nginx  --restart=always  \
 * 启动时自动更新bt tracker
 
 ## 安装
-1. 挂载 `/DOWNLOAD_DIR` 到 `/aria2/downloads` 并且挂载 `/CONFIG_DIR` 到 `/aria2/conf`.当容器启动时, 将创建  `aria2.conf`文件作为默认配置.
+1. 挂载 `/DOWNLOAD_DIR` 到 `/aria2/downloads` 并且挂载 `/CONFIG_DIR` 到 `/aria2/conf`,`nginx.conf_DIR` 到 `/aria2/conf/nginx/nginx.conf`.当容器启动时, 将使用  `aria2.conf`文件作为默认配置.继续使用上一次下载记录
 2. 端口映射:
   * 6800 aira2 jsonrpc端口
   * 80 Aria-Ng网页
