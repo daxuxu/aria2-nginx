@@ -23,7 +23,7 @@ docker run -d --name aria2-nginx  --restart=always  \
 
 ## 介绍
 * 支持平台: `amd64`, `arm/v7`.(我只有这2类arch的设备)
-* 基于最新的easypi/alpine构建，镜像不到**20MB**.
+* 基于最新的easypi/alpine构建，镜像提及**20MB**左右.
 * 自定义aria2配置.
 * Aria-Ng作为web ui,
 * 由Nginx驱动作为http服务器, 配置更加简单,采用最常用的HTTP认证方案-HTTP Basic authentication提供基本安全保障,也可根据需要加入https.
