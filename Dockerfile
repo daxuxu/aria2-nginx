@@ -13,6 +13,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 COPY init.sh /aria2/init.sh
 COPY conf /aria2/conf
+COPY aria2 /root/.aria2
 
 RUN chmod +x /aria2/init.sh 
 
