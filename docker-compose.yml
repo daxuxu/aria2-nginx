@@ -10,9 +10,10 @@ services:
     environment:
       - HTPASSWD=YOUR_PASSWORD
     volumes:
-      - /webser/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf
+      - /webdev/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf
+      - /webdev/aria2-nginx/conf/nginx/autoindex.html:/aria2/downloads/autoindex.html
       - /mnt/usbdisk/data:/aria2/downloads
-      - /webser/aria2-nginx/aria2/:/root/.aria2/
+      - /webdev/aria2-nginx/aria2/:/root/.aria2/
     networks:
       - aria2_network
     ports:
