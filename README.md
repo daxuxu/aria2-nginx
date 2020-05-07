@@ -1,12 +1,17 @@
 # aria2-nginx
 Aria2 with Aira-Ng web UI (by Nginx)
 ## 快速开始
+* 检出项目
+```
+git clone git@github.com:daxuxu/aria2-nginx.git
+```
 * build镜像,dockerfile中使用aliyun mirrors,减少apk源的加载时间
 ```
 docker build -f Dockerfile -t aria2-nginx .
 ```
 
-* 启动镜像
+* 启动镜像（docker命令或者docker-compose形式）
+
 ```
 docker run -d --name aria2-nginx  --restart=always  \
     -p 6800:6800  \
@@ -20,6 +25,39 @@ docker run -d --name aria2-nginx  --restart=always  \
     aria2-nginx
 ```
 结束之后, 在浏览器打开 http://yourip:6880/ 访问 Aria-Ng 主页, 打开 http://yourip:6888/ 浏览下载文件夹.
+
+或者使用docker-compose启动：
+```
+version: '3'
+
+networks:
+  aria2_network:
+    external: false
+
+services:
+  aria2-nginx:
+    image: aria2-nginx
+    environment:
+      - HTPASSWD=YOUR_PASSWORD
+    volumes:
+      - /you/path/aria2-nginx/conf/nginx/nginx.conf:/aria2/conf/nginx/nginx.conf
+      - /mnt/usbdisk/data:/aria2/downloads
+      - /you/path/aria2-nginx/aria2/:/root/.aria2/
+    networks:
+      - aria2_network
+    ports:
+      - "6800:6800"
+      - "6880:80"
+      - "6888:81"
+      - "51413:51413"
+
+```
+使用docker-compose启动
+```
+cd /you/path/aria2-nginx
+docker-compose up -d
+```
+
 
 ## 介绍
 * 支持平台: `amd64`, `arm/v7`.(我只有这2类arch的设备)
